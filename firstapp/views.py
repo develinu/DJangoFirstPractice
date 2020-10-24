@@ -1,14 +1,22 @@
-from django.shortcuts import render
+# from django.shortcuts import render
+# from .models import Post
 from .models import Post
+from django.views.generic import ListView
 
 
-def index(request):
-    posts = Post.objects.all()
+class PostList(ListView):
+    model = Post
 
-    return render(
-        request,
-        'news/index.html',
-        {
-            "posts": posts
-        }
-    )
+    def get_queryset(self):
+        return Post.objects.order_by('-created')
+
+# def index(request):
+#     posts = Post.objects.all()
+#
+#     return render(
+#         request,
+#         'news/index.html',
+#         {
+#             "posts": posts
+#         }
+#     )

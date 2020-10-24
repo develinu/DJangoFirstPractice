@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title> NEWS </title>
+</head>
+<body>
+    <h1> NEWS </h1>
+    {% for p in object_list %}
+    <h3> {{ p.title }} </h3>
+    <h4> 작성자 : {{ p.author }} </h4>
+    <h4> 작성날짜 : {{ p.created }} </h4>
+    <p> {{ p.content }} </p>
+    {% endfor %}
+</body>
+</html>
